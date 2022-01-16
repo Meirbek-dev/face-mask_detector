@@ -1,0 +1,25 @@
+.git
+.idea
+*.log
+
+Tensorflow/labelImg/*
+Tensorflow/labelImg/libs/resources.qrc
+Tensorflow/models
+Tensorflow/workspace/models/my_ssd_mobnet/train/*
+Tensorflow/workspace/images/test/*
+Tensorflow/workspace/images/train/*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+.python-version
+__pypackages__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
