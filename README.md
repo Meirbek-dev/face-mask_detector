@@ -10,7 +10,7 @@
 - [**Tensorflow** 2.7.0](https://www.tensorflow.org/)
 - [**Keras** 2.7.0](https://keras.io/)
 - [**OpenCV** 4.5.5](https://opencv.org/)
-- [Модели Tensorflow](https://github.com/tensorflow/models)
+- [Предварительно тренированные модели Tensorflow](https://github.com/tensorflow/models)
 - [**Protocol Buffers** 3.19.2](https://github.com/protocolbuffers/protobuf/)
 - [**SSD MobileNet V2 FPNLite 320x320**](https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config). [Скачать](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz)
 - [**CUDA** 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive)

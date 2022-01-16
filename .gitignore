@@ -8,6 +8,9 @@ Tensorflow/models
 Tensorflow/workspace/models/my_ssd_mobnet/train/*
 Tensorflow/workspace/images/test/*
 Tensorflow/workspace/images/train/*
+Tensorflow/workspace/models/my_ssd_mobnet/*
+Tensorflow/workspace/models/my_ssd_mobnet/train/*
+Tensorflow/workspace/annotations/*
 
 # Jupyter Notebook
 .ipynb_checkpoints
