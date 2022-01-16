@@ -12,9 +12,7 @@
 - [**OpenCV** 4.5.5](https://opencv.org/)
 - [Модели Tensorflow](https://github.com/tensorflow/models)
 - [**Protocol Buffers** 3.19.2](https://github.com/protocolbuffers/protobuf/)
-- [**SSD MobileNet V2 FPNLite
-  320x320**](https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config)
-  . [Скачать](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz)
+- [**SSD MobileNet V2 FPNLite 320x320**](https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config). [Скачать](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz)
 - [**CUDA** 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive)
 - [**cuDNN** 8.1.1](https://developer.nvidia.com/rdp/cudnn-archive)
 
@@ -29,10 +27,8 @@
 ### Используемые наборы данных
 
 - [**Kaggle**. Face Mask Detection by Larxel](https://www.kaggle.com/andrewmvd/face-mask-detection)
-- [**
-  Kaggle**. Face Mask Detection Dataset by Wobot Intelligence](https://www.kaggle.com/wobotintelligence/face-mask-detection-dataset)
-- [**
-  Kaggle**. Face Mask Dataset (YOLO Format) by Aditya Purohit](https://www.kaggle.com/aditya276/face-mask-dataset-yolo-format)
+- [**Kaggle**. Face Mask Detection Dataset by Wobot Intelligence](https://www.kaggle.com/wobotintelligence/face-mask-detection-dataset)
+- [**Kaggle**. Face Mask Dataset (YOLO Format) by Aditya Purohit](https://www.kaggle.com/aditya276/face-mask-dataset-yolo-format)
 - [**roboflow**. Mask Wearing Dataset by Joseph Nelson](https://public.roboflow.com/object-detection/mask-wearing)
 
 Набор данных состоит из ***XXX*** изображений, разделенных на 2 класса:
