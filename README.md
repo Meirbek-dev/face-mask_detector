@@ -13,7 +13,7 @@
 - [Предварительно тренированные модели Tensorflow](https://github.com/tensorflow/models)
 - [**Protocol Buffers** 3.19.2](https://github.com/protocolbuffers/protobuf/)
 - [**SSD MobileNet V2 FPNLite 320x320**](https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.config). [Скачать](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz)
-- [LabelImg](https://github.com/tzutalin/labelImg)
+- [**LabelImg**](https://github.com/tzutalin/labelImg). Для графической отметки вручную.
 - [**CUDA** 11.2](https://developer.nvidia.com/cuda-11.2.2-download-archive)
 - [**cuDNN** 8.1.1](https://developer.nvidia.com/rdp/cudnn-archive)
 
@@ -25,7 +25,7 @@
 
 ### [Инструкция установки CUDA](https://docs.nvidia.com/cuda/archive/11.2.2/cuda-installation-guide-microsoft-windows/index.html)
 
-### Дополнительные пакеты
+### Пакеты для работы LabelImg
 ```
 conda install -c anaconda lxml
 conda install pyqt=5

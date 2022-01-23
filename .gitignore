@@ -3,7 +3,7 @@
 
 Tensorflow/labelImg/*
 Tensorflow/labelImg/libs/resources.qrc
-Tensorflow/models
+/Tensorflow/models/
 Tensorflow/workspace/models/my_ssd_mobnet/train/*
 Tensorflow/workspace/images/test/*
 Tensorflow/workspace/images/train/*
