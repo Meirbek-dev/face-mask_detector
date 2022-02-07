@@ -1,13 +1,12 @@
 """Запуск уже тренированной модели"""
 import os
-
+import sys
 import cv2 as cv  # Импорт модуля OpenCV для компьютерного видения
 import numpy as np
+import tensorflow as tf
 from object_detection.builders import model_builder
 from object_detection.utils import config_util, label_map_util
 from object_detection.utils import visualization_utils as viz_utilz
-
-import tensorflow as tf
 
 APP_TITLE = "Обнаружение маски. Нажмите Q для выхода"
 MODEL_PATH = "Tensorflow/workspace/models"
@@ -16,33 +15,33 @@ CHECKPOINT_PATH = MODEL_PATH + "/my_ssd_mobnet/"
 CUSTOM_MODEL_NAME = "my_ssd_mobnet"
 CONFIG_FILE = MODEL_PATH + "/" + CUSTOM_MODEL_NAME + "/pipeline.config"
 
-# Загрузка конфигурации и построение модели обнаружения
-configs = config_util.get_configs_from_pipeline_file(CONFIG_FILE)
-detection_model = model_builder.build(model_config=configs["model"], is_training=False)
 
-# Восстановление точки сохранения
-ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
-ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-7")).expect_partial()
-
-
-@tf.function
-def detect(image):
-    image, shapes = detection_model.preprocess(image)
-    prediction_dict = detection_model.predict(image, shapes)
-    detections = detection_model.postprocess(prediction_dict, shapes)
-    return detections
-
-
-category_index = label_map_util.create_category_index_from_labelmap(LABEL_MAP_PATH)
-
-# Видеозахват веб-камеры. В качестве аргумента указывается ID-устройства, либо путь к медиа-файлу
-camera = cv.VideoCapture(0)
-# # Получение ширины и высоты окна
-# width, height = (
-#     int(camera.get(cv.CAP_PROP_FRAME_WIDTH)),
-#     int(camera.get(cv.CAP_PROP_FRAME_HEIGHT)),
-# )
 def main():
+    # Загрузка конфигурации и построение модели обнаружения
+    configs = config_util.get_configs_from_pipeline_file(CONFIG_FILE)
+    detection_model = model_builder.build(model_config=configs["model"], is_training=False)
+
+    # Восстановление точки сохранения
+    ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
+    ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-7")).expect_partial()
+
+    @tf.function
+    def detect(image):
+        image, shapes = detection_model.preprocess(image)
+        prediction_dict = detection_model.predict(image, shapes)
+        detections = detection_model.postprocess(prediction_dict, shapes)
+        return detections
+
+    category_index = label_map_util.create_category_index_from_labelmap(LABEL_MAP_PATH)
+
+    # Видеозахват веб-камеры. В качестве аргумента указывается ID-устройства, либо путь к медиа-файлу
+    camera = cv.VideoCapture(0)
+    # # Получение ширины и высоты окна
+    # width, height = (
+    #     int(camera.get(cv.CAP_PROP_FRAME_WIDTH)),
+    #     int(camera.get(cv.CAP_PROP_FRAME_HEIGHT)),
+    # )
+
     while True:
         ret, frame = camera.read()  # Считывание кадров с камеры
         image_arr = np.array(frame)  # Перевод кадров в массив
@@ -70,7 +69,7 @@ def main():
             detections["detection_scores"],
             category_index,
             use_normalized_coordinates=True,  # Установка визуализации поверх объекта, а не в координатах (0, 0)
-            max_boxes_to_draw=2,  # Максимальное количество визуализированых квадратов
+            max_boxes_to_draw=2,  # Максимальное количество визуализированных квадратов
             line_thickness=2,  # Толщина линий квадрата
             min_score_thresh=0.5,  # Минимальная отметка точности - 50%
             agnostic_mode=False,
@@ -86,3 +85,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sys.exit()
