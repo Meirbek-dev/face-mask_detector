@@ -1,6 +1,6 @@
 .git
 .idea
-
+.vscode
 Tensorflow/labelImg/*
 Tensorflow/labelImg/libs/resources.qrc
 /Tensorflow/models/
@@ -12,3 +12,4 @@ Tensorflow/workspace/annotations/*
 
 # Jupyter Notebook
 .ipynb_checkpoints
+/Tensorflow/models/research/*

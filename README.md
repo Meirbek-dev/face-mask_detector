@@ -26,10 +26,12 @@
 ### [Инструкция установки CUDA](https://docs.nvidia.com/cuda/archive/11.2.2/cuda-installation-guide-microsoft-windows/index.html)
 
 ### Пакеты для работы LabelImg
+
 ```
 conda install -c anaconda lxml
 conda install pyqt=5
 ```
+
 ### Используемый набор данных
 
 - [**Kaggle**. Face Mask Detection by Larxel](https://www.kaggle.com/andrewmvd/face-mask-detection) из *853* изображений
