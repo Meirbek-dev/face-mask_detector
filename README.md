@@ -7,8 +7,8 @@
 ### Используемые технологии
 
 - [**Conda** 4.11.0](https://www.anaconda.com/) с [**Python** 3.9.7](https://www.python.org/)
-- [**Tensorflow** 2.7.0](https://www.tensorflow.org/)
-- [**Keras** 2.7.0](https://keras.io/)
+- [**Tensorflow** 2.8.0](https://www.tensorflow.org/)
+- [**Keras** 2.8.0](https://keras.io/)
 - [**OpenCV** 4.5.5](https://opencv.org/)
 - [Предварительно тренированные модели Tensorflow](https://github.com/tensorflow/models)
 - [**Protocol Buffers** 3.19.2](https://github.com/protocolbuffers/protobuf/)

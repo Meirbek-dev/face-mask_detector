@@ -9,6 +9,8 @@ FILE_TO_RUN = ("python", "detect.py")
 
 def main():
     window = tk.Tk()
+    logo = tk.PhotoImage(file="logo.png")
+    window.iconphoto(False, logo)
     # Установка заголовка окна
     window.title("Обнаружение маски")
     # Установка размера окна
@@ -35,7 +37,7 @@ def main():
     def btn_detect_cmd():
         # global BTN_IS_NOT_PRESSED
         # if BTN_IS_NOT_PRESSED:
-        sp.run(["python", "detect.py"])
+        sp.run(FILE_TO_RUN)
         #     btn_detect['text'] = 'Завершить обнаружение'
         #     btn_detect['fg'] = 'red'
         #     BTN_IS_NOT_PRESSED = False
