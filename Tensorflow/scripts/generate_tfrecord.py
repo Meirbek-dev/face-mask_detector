@@ -1,19 +1,20 @@
-import argparse
-import glob
-import io
-import os
-import xml.etree.ElementTree as ET
+from argparse import ArgumentParser
+from glob import glob
+from io import BytesIO
+from os import environ
+from os.path import join
+from xml.etree.ElementTree import parse
 
-import pandas as pd
+from pandas import DataFrame
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 from collections import namedtuple
 
 import tensorflow.compat.v1 as tf
 from object_detection.utils import dataset_util, label_map_util
-from PIL import Image
+from PIL.Image import open
 
-parser = argparse.ArgumentParser(description="Конвертер XML в TFRecord")
+parser = ArgumentParser(description="Конвертер XML в TFRecord")
 parser.add_argument(
     "-x",
     "--xml_dir",
@@ -49,8 +50,8 @@ label_map_dict = label_map_util.get_label_map_dict(label_map)
 
 def xml_to_csv(path):
     xml_list = []
-    for xml_file in glob.glob(path + "/*.xml"):
-        tree = ET.parse(xml_file)
+    for xml_file in glob(path + "/*.xml"):
+        tree = parse(xml_file)
         root = tree.getroot()
         filename = root.find("filename").text
         width = int(root.find("size").find("width").text)
@@ -78,7 +79,7 @@ def xml_to_csv(path):
         "xmax",
         "ymax",
     ]
-    xml_df = pd.DataFrame(xml_list, columns=column_name)
+    xml_df = DataFrame(xml_list, columns=column_name)
     return xml_df
 
 
@@ -96,10 +97,10 @@ def split(df, group):
 
 
 def create_tf_example(group, path):
-    with tf.gfile.GFile(os.path.join(path, "{}".format(group.filename)), "rb") as fid:
+    with tf.gfile.GFile(join(path, "{}".format(group.filename)), "rb") as fid:
         encoded_jpg = fid.read()
-    encoded_jpg_io = io.BytesIO(encoded_jpg)
-    image = Image.open(encoded_jpg_io)
+    encoded_jpg_io = BytesIO(encoded_jpg)
+    image = open(encoded_jpg_io)
     width, height = image.size
 
     filename = group.filename.encode("utf8")
@@ -144,7 +145,7 @@ def create_tf_example(group, path):
 
 def main(_):
     writer = tf.python_io.TFRecordWriter(args.output_path)
-    path = os.path.join(args.image_dir)
+    path = join(args.image_dir)
     examples = xml_to_csv(args.xml_dir)
     grouped = split(examples, "filename")
     for group in grouped:
