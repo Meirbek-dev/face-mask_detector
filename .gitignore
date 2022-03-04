@@ -3,11 +3,10 @@
 .vscode
 __pycache__
 
-Tensorflow/labelImg/*
-Tensorflow/labelImg/libs/resources.qrc
+labelImg/*
+labelImg/libs/resources.qrc
 /Tensorflow/models/
 /Tensorflow/models/research/*
-Tensorflow/workspace/models/my_ssd_mobnet/train/*
 Tensorflow/workspace/images/test/*
 Tensorflow/workspace/images/train/*
 Tensorflow/workspace/models/my_ssd_mobnet/*
