@@ -1,17 +1,9 @@
 .git
 .idea
 .vscode
-__pycache__
-
-labelImg/*
-labelImg/libs/resources.qrc
-/Tensorflow/models/
-/Tensorflow/models/research/*
-Tensorflow/workspace/images/test/*
-Tensorflow/workspace/images/train/*
-Tensorflow/workspace/models/my_ssd_mobnet/*
-Tensorflow/workspace/annotations/*
-
-# Jupyter Notebook
 .ipynb_checkpoints
-
+__pycache__
+labelImg
+Tensorflow/models
+Tensorflow/workspace/*
+Tensorflow\workspace\annotations\label_map.pbtxt

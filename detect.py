@@ -1,12 +1,14 @@
 """Запуск уже тренированной модели"""
 import os
 import sys
+
 import cv2 as cv  # Импорт модуля OpenCV для компьютерного видения
 import numpy as np
-import tensorflow as tf
 from object_detection.builders import model_builder
 from object_detection.utils import config_util, label_map_util
 from object_detection.utils import visualization_utils as viz_utilz
+
+import tensorflow as tf
 
 APP_TITLE = "Обнаружение маски. Нажмите Q для выхода"
 MODEL_PATH = "Tensorflow/workspace/models"
@@ -23,7 +25,7 @@ def main():
 
     # Восстановление точки сохранения
     ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
-    ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-7")).expect_partial()
+    ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-6")).expect_partial()
 
     @tf.function
     def detect(image):
