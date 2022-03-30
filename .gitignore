@@ -1,9 +1,8 @@
 .git
-.idea
 .vscode
+.idea
 .ipynb_checkpoints
 __pycache__
 labelImg
 Tensorflow/models
-Tensorflow/workspace/*
-Tensorflow\workspace\annotations\label_map.pbtxt
+Tensorflow/workspace
