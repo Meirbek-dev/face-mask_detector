@@ -1,4 +1,3 @@
-"""Запуск уже тренированной модели"""
 import os
 import sys
 
@@ -25,7 +24,7 @@ def main():
 
     # Восстановление точки сохранения
     ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
-    ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-6")).expect_partial()
+    ckpt.restore(os.path.join(CHECKPOINT_PATH, "ckpt-9")).expect_partial()
 
     @tf.function
     def detect(image):
@@ -80,9 +79,10 @@ def main():
         cv.imshow(APP_TITLE, cv.resize(image_arr_with_detections, (1000, 750)))
 
         if cv.waitKey(1) == ord("q"):  # Привязка завершения обнаружения на клавишу 'q'
-            camera.release()  # Высвобождение камеры
-            cv.destroyAllWindows()  # Закрытие окон OpenCV
             break
+        camera.release()  # Высвобождение камеры
+        cv.destroyAllWindows()  # Закрытие окон OpenCV
+
 
 
 if __name__ == '__main__':
